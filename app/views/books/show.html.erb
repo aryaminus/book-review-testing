@@ -2,5 +2,9 @@
 <%= @book.author %>
 <%= @book.description %>
 
-<%= link_to "Edit", edit_book_path(@book) %>
-<%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Sure?"} %>
+<%= link_to "Back", root_path %>
+
+<% if user_signed_in? %>
+        <%= link_to "Edit", edit_book_path(@book) %>
+        <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Sure?"} %>
+<% end %>
