@@ -1,5 +1,17 @@
 <%= simple_form_for([@book, @book.reviews.build]) do |f| %>
-    <%= f.input :rating %>
+    <div id="rating-form">
+        <label>Rating</label>
+    </div>
     <%= f.input :comment %>
     <%= f.button :submit %>
 <% end %>
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
